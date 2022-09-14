@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{/layout/header::setContent(~{this::content})}">
+	<th:block th:fragment="content">
+		</th:block>
+</th:block>
+<br><br>
+<div class='outer-div'>
+  <div class='inner-div'>
+	
+	<h1 class="mt4" align="center">로 그 인</h1>
+	<br>
+	<div th:if="${msg!=null}" th:text="${msg}"></div>
+	
+	<form th:action="@{/member/login}" th:method="post">
+		<div align="center" th:if="${loginError!=null}" th:text="${loginError}"></div>
+		<table align="center">
+			<tr>
+				<td>아이디</td>
+				<td><input type="text" name="mid" /></td>  
+			</tr>
+			<tr>
+				<td>비밀번호</td>
+				<td><input type="password" name="pw" /></td>
+			</tr>
+			<tr>
+				<td lass= "remember"colspan="2" align="center">
+					<input class= "remember-me" type="checkbox" name="remember-me" />&nbsp &nbsp자동 로그인
+					&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp 
+					&nbsp&nbsp &nbsp&nbsp 
+					
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					<input class="btn" type="submit" value="로그인" />
+					&nbsp&nbsp
+					<input class="btn" type="button" value="회원가입" onclick="window.location='/member/register'" />
+					&nbsp&nbsp
+					<input class="btn" type="button" value="메인" onclick="window.location='/main'" />
+				</td>
+			</tr>
+		</table>
+	</form>
+	
+	</div>
+</div>
+
+<th:block th:replace="~{/layout/footer::setContent(~{this::content})}">
+	<th:block th:fragment="content">
+	</th:block>
+</th:block>
+
+<style>
+
+.outer-div {
+  width : 600px;
+  margin: auto;
+  height: 500px;
+}
+
+.inner-div {
+	text-align: center;
+  width : 600px;
+  height: 500px;
+  margin: auto;
+}
+/*버튼디자인*/ 
+        input.btn{
+			color : white;
+			font-weight: bold;
+			background-color: #481677;
+			border-color :#6667AB;
+			width: 100px;
+			height: 45px;
+			 border-radius : 10px;
+			 font-size: 16px;
+			}
+			
+		input.btn:hover{
+			background-color: white;
+			border-color :#481677;
+			
+		}
+		table {
+			width: 400px;
+			height: 250px;
+		}
+		td{
+			font-weight: bold;
+			font-size: 15px;
+			
+		}
+		
+		input{
+			height: 40px;
+			width: 300px;
+			border-color : #481677;
+			 border-radius : 10px;
+		}
+		
+		.remember{
+			text-align: justify;
+		}
+		.remember-me{
+			height: 25px;
+			width: 25px;
+		}
+		
+
+</style>
